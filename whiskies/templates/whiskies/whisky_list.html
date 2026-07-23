@@ -1,7 +1,42 @@
-<h1>ウイスキー一覧</h1>
+{% extends "base.html" %}
 
-{% for whisky in whiskies %}
-    <h3>{{ whisky.name }}</h3>
-    <p>{{ whisky.country }}</p>
-    <p>{{ whisky.age }}年</p>
-{% endfor %}
+{% block title %}
+Whisky Log
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center mb-5">
+    🥃 Whisky Log
+</h1>
+
+<div class="row justify-content-center">
+
+    {% for whisky in whiskies %}
+
+    <div class="col-lg-8 mb-4">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <h3 class="card-title">
+                    {{ whisky.name }}
+                </h3>
+
+                <p><strong>国：</strong>{{ whisky.country }}</p>
+                <p><strong>蒸留所：</strong>{{ whisky.distillery }}</p>
+                <p><strong>熟成年数：</strong>{{ whisky.age }}年</p>
+                <p><strong>アルコール度数：</strong>{{ whisky.abv }}%</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
