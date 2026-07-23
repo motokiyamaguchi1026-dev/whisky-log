@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ whisky.name }}
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <h1 class="mb-4">
+                    🥃 {{ whisky.name }}
+                </h1>
+
+                <p><strong>国：</strong>{{ whisky.country }}</p>
+
+                <p><strong>蒸留所：</strong>{{ whisky.distillery }}</p>
+
+                <p><strong>熟成年数：</strong>{{ whisky.age }}年</p>
+
+                <p><strong>アルコール度数：</strong>{{ whisky.abv }}%</p>
+
+                <hr>
+
+                <h5>メモ</h5>
+
+                <p>
+                    {% if whisky.memo %}
+                        {{ whisky.memo }}
+                    {% else %}
+                        メモはありません。
+                    {% endif %}
+                </p>
+                <a href="{% url 'whisky_update' whisky.pk %}" class="btn btn-warning">
+                    ✏️ 編集
+                </a>
+
+                <a href="{% url 'whisky_list' %}" class="btn btn-secondary">
+                    ← 一覧へ戻る
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
