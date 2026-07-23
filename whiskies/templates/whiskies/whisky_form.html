@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+ウイスキー登録
+{% endblock %}
+
+{% block content %}
+
+<h1 class="mb-4">🥃 ウイスキー登録</h1>
+
+<form method="post">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary">
+        登録
+    </button>
+
+    <a href="{% url 'whisky_list' %}" class="btn btn-secondary">
+        戻る
+    </a>
+
+</form>
+
+{% endblock %}
